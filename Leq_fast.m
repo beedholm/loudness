@@ -10,6 +10,7 @@ function Leq=Leq_fast(sig,fs,tau,type)
 
 %Aarhus University, Jakob Tougaard and Kristian Beedholm, Jan. 2018 
 %jat@bios.au.dk
+%Shared under Creative Commons license CC BY-SA 4.0 (share alike)
 
 if size(sig,1)==1    %Flip input if horizontal array
     sig=sig';
@@ -42,7 +43,7 @@ else                %exponential kernel
 end
 
 %convolution)
-Leq=sqrt((ifft(fft(sig.^2).*fft(w)))/L);
+Leq=real(sqrt((ifft(fft(sig.^2).*fft(w)))/L));
 
 if horizontal   %flip output back to horizontal if input is a horizontal array
     Leq=Leq';
